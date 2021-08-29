@@ -5,8 +5,8 @@ on:
 
 jobs:
   pycharm_c:
+    runs-on: ubuntu-latesf
     steps:
-      - runs-on: ubuntu-latest
       - name: Checkout Jetbrains Projector Docker
         uses: actions/checkout@v2
         with: 
