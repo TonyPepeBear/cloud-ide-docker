@@ -36,7 +36,7 @@ jobs:
       
       - name: Tag Image
         run: |
-          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}${{ env.VERSION }}
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
 
       - name: Push Image
         run: |
