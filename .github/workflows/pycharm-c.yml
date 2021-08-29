@@ -27,11 +27,11 @@ jobs:
         run: ./clone-projector-core.sh
 
       - name: Build Conatainer
-        working-directory: ./projector
         run: |
-          ls ..
-          ./build-container.sh pycharmc "https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
-
+          DOCKER_BUILDKIT=1 docker build --progress=plain -t "tonypepe/pycharmc" \
+            --build-arg buildGradle=false \
+            --build-arg "downloadUrl=https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz" \
+            -f projector/Dockerfile
 
       # - name: Build and Push
       #   uses: docker/build-push-action@v2
