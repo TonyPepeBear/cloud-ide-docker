@@ -31,14 +31,14 @@ jobs:
       - name: Build Conatainer
         working-directory: ./projector-docker
         run: |
-          ./build-container.sh "tonypepe/pycharmc:latest" "https://download.jetbrains.com/python/pycharm-community-${{ env.VERSION }}.tar.gz"
+          ./build-container.sh "${{ secrets.DOCKERHUB_USERNAME }}/pycharmc:latest" "https://download.jetbrains.com/python/pycharm-community-${{ env.VERSION }}.tar.gz"
       
       - name: Tag Image
         run: |
-          docker tag tonypepe/pycharm:latest tonypepe/pycharmc${{ env.VERSION }}
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/pycharm:latest ${{ secrets.DOCKERHUB_USERNAME }}/pycharmc${{ env.VERSION }}
 
       - name: Push Image
         run: |
-          docker push tonypepe/pycharmc:latest
-          docker push tonypepe/pychermc:${{ env.VERSION }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/pycharmc:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/pychermc:${{ env.VERSION }}
 
