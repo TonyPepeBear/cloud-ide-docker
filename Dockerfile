@@ -109,7 +109,7 @@ RUN true \
 # Activate debugging to show execution details: all commands will be printed before execution
     && set -x \
 # ADD by Me
-    && echo $PROJECTOR_USER_NAME ALL=\(ALL\) NOPASSWD: ALL \
+    && echo $PROJECTOR_USER_NAME ALL=\(ALL\) NOPASSWD: ALL  >> /etc/sudoers \
 # End ADD by Me
 # move run scipt:
     && mv $PROJECTOR_DIR/run.sh run.sh \
