@@ -6,8 +6,9 @@ on:
 jobs:
   pycharm_c:
     runs-on: ubuntu-latest
-    env:
+    env: | 
       VERSION: "2021.2.1"
+      IMAGE_NAME: "pycharmc"
     steps:
       - name: Checkout Jetbrains Projector Docker
         uses: actions/checkout@v2
@@ -31,14 +32,14 @@ jobs:
       - name: Build Conatainer
         working-directory: ./projector-docker
         run: |
-          ./build-container.sh "${{ secrets.DOCKERHUB_USERNAME }}/pycharmc:latest" "https://download.jetbrains.com/python/pycharm-community-${{ env.VERSION }}.tar.gz"
+          ./build-container.sh "${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest" "https://download.jetbrains.com/python/pycharm-community-${{ env.VERSION }}.tar.gz"
       
       - name: Tag Image
         run: |
-          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/pycharm:latest ${{ secrets.DOCKERHUB_USERNAME }}/pycharmc${{ env.VERSION }}
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}${{ env.VERSION }}
 
       - name: Push Image
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/pycharmc:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/pychermc:${{ env.VERSION }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
 
