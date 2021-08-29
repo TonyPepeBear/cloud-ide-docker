@@ -23,13 +23,13 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Clone Projector Core
+        working-directory: ./projector
         run: projector/clone-projector-core.sh
 
       - name: Build Conatainer
         working-directory: ./projector
         run: |
-          ls -l
-          build-container.sh pycharmc "https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
+          ./build-container.sh pycharmc "https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
 
 
       # - name: Build and Push
