@@ -29,8 +29,11 @@ jobs:
       - name: Build Conatainer
         working-directory: ./projector-docker
         run: |
-          ./build-container.sh "pycharmc:latest" "https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
-          
+          ./build-container.sh "tonypepe/pycharmc:latest" "https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
+      
+      - name: Push Image
+        run: |
+          docker push tonypepe/pycharmc:latest
       # - name: Build and Push
       #   uses: docker/build-push-action@v2
       #   with:
