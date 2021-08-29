@@ -7,8 +7,8 @@ jobs:
   pycharm_c:
     runs-on: ubuntu-latest
     env: 
-      - VERSION: "2021.2.1"
-      - IMAGE_NAME: "pycharmc"
+      VERSION: "2021.2.1"
+      IMAGE_NAME: "pycharmc"
     steps:
       - name: Checkout Jetbrains Projector Docker
         uses: actions/checkout@v2
