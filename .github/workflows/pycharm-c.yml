@@ -26,7 +26,7 @@ jobs:
         run: projector/clone-projector-core.sh
 
       - name: Build Conatainer
-        run: projector/build-container.sh pycharmc "https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz
+        run: projector/build-container.sh pycharmc "https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
 
 
       # - name: Build and Push
