@@ -23,7 +23,7 @@ jobs:
       
       - name: Replace Dockerfile
         run: |
-          copy repo/Dockerfile projector-docker/Dockerfile
+          cp repo/Dockerfile projector-docker/Dockerfile
           cat projector-docker/Dockerfile
       
       - name: Set up Docker Buildx
