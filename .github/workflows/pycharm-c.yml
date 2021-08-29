@@ -10,11 +10,21 @@ jobs:
       VERSION: "2021.2.1"
       IMAGE_NAME: "pycharmc"
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          path: repo
+
       - name: Checkout Jetbrains Projector Docker
         uses: actions/checkout@v2
         with: 
           repository: JetBrains/projector-docker
           path: projector-docker
+      
+      - name: Replace Dockerfile
+        run: |
+          copy repo/Dockerfile projector-docker/Dockerfile
+          cat projector-docker/Dockerfile
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
