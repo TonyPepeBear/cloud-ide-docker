@@ -31,7 +31,7 @@ jobs:
           DOCKER_BUILDKIT=1 docker build --progress=plain -t "tonypepe/pycharmc" \
             --build-arg buildGradle=false \
             --build-arg "downloadUrl=https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz" \
-            -f projector/Dockerfile ..
+            -f projector/Dockerfile .
 
       # - name: Build and Push
       #   uses: docker/build-push-action@v2
