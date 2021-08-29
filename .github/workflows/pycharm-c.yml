@@ -31,7 +31,8 @@ jobs:
           push: true
           tags: tonypepe/pycharm:latest
           build-args: |
-              buildGradle=true,downloadUrl="https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
+              buildGradle=true
+              "downloadUrl=https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
           context: 'projector'
       
 
