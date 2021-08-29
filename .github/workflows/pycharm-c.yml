@@ -33,7 +33,8 @@ jobs:
           build-args: |
               buildGradle=true
               "downloadUrl=https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
-          file: projector/Dockerfile
+          file: ./projector/Dockerfile
+          context: .
       
 
 
