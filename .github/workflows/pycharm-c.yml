@@ -24,7 +24,7 @@ jobs:
 
       - name: Clone Projector Core
         working-directory: ./projector
-        run: projector/clone-projector-core.sh
+        run: ./clone-projector-core.sh
 
       - name: Build Conatainer
         working-directory: ./projector
