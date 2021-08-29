@@ -29,6 +29,7 @@ jobs:
       - name: Build Conatainer
         working-directory: ./projector
         run: |
+          ls ..
           ./build-container.sh pycharmc "https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
 
 
