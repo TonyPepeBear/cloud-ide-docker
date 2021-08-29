@@ -25,16 +25,20 @@ jobs:
       - name: Clone Projector Core
         run: projector/clone-projector-core.sh
 
-      - name: Build and Push
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: tonypepe/pycharm:latest
-          build-args: |
-              buildGradle=true
-              "downloadUrl=https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
-          file: ./projector/Dockerfile
-          context: .
+      - name: Build Conatainer
+        run: projector/build-container.sh pycharmc "https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz
+
+
+      # - name: Build and Push
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     push: true
+      #     tags: tonypepe/pycharm:latest
+      #     build-args: |
+      #         buildGradle=true
+      #         "downloadUrl=https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz"
+      #     file: ./projector/Dockerfile
+      #     context: .
       
 
 
