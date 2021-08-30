@@ -3,5 +3,5 @@
 ## Pycharm Community Edition
 
 ```bash
-docker run -p 8887:8887 tonypepe/pycharmc
+docker run -dp 8887:8887 tonypepe/pycharmc
 ```
