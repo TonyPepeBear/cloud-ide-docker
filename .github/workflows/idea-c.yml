@@ -37,7 +37,7 @@ jobs:
       - name: Build Conatainer
         working-directory: ./projector-docker
         run: |
-          ./build-container.sh "${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest" "https://download.jetbrains.com/idea/idealC-${{ env.VERSION }}.tar.gz"
+          ./build-container.sh "${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest" "https://download-cdn.jetbrains.com/idea/idealC-${{ env.VERSION }}.tar.gz"
       
       - name: Tag Image
         run: |
